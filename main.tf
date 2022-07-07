@@ -3,13 +3,13 @@ data "azurerm_resource_group" "RG" {
 }
 
 # Generate Ramdon String
-resource "random_string" "random_passwd" {
+resource "random_string" "random_user" {
   length                       = "14"
   special                      = "true"
 }
 # Create the secret for user
 resource "azurerm_key_vault_secret" "user_secret" {
   name                         = var.usersecret_name
-  value                        = random_string.random_passwd.result
+  value                        = random_string.random_user.result
   key_vault_id                 = data.azurerm_key_vault.RG.id
 }
