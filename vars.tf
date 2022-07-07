@@ -4,3 +4,9 @@ variable "resource_group_name" {
 variable "location" {
     type        = string
 }
+variable "name_keyvault" {
+    type        = string
+}
+variable "usersecret_name" {
+    type        = string
+}
